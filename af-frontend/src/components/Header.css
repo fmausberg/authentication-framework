@@ -1,0 +1,91 @@
+/* src/components/Header.css */
+
+/* Basic reset and box-sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Styling for the header */
+  header {
+    background-color: #333;
+    color: white;
+    padding: 15px 30px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  /* Styling for the left and right navigation lists */
+  .nav-left,
+  .nav-right {
+    display: flex;
+    list-style: none;
+  }
+  
+  .nav-left li,
+  .nav-right li {
+    margin-right: 20px;
+  }
+  
+  /* General menu item styling */
+  .menuitem {
+    font-size: 16px;
+  }
+  
+  .menuitem a,
+  .menuitem button {
+    color: white;
+    text-decoration: none;
+    /*padding: 10px 15px;*/
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: color 0.3s, background-color 0.3s;
+  }
+  
+  /* Hover effect for links and buttons */
+  .menuitem a:hover,
+  .menuitem button:hover {
+    color: #007bff;
+    background-color: rgba(0, 123, 255, 0.1);
+  }
+  
+  /* Adjust for the "Logout" button */
+  .menuitem button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: white;
+    font-size: 16px;
+  }
+  
+  .menuitem button:hover {
+    color: #007bff;
+  }
+  
+  /* Ensure proper layout on mobile screens */
+  @media (max-width: 768px) {
+    .navbar {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .nav-left,
+    .nav-right {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .nav-left li,
+    .nav-right li {
+      margin-right: 0;
+      margin-bottom: 10px;
+    }
+  }
+  

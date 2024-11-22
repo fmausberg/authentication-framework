@@ -1,0 +1,45 @@
+/* Center everything in the container */
+.register-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+    text-align: center; /* Center text */
+  }
+  
+  h1 {
+    margin-bottom: 20px;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  input {
+    margin: 10px 0;
+    padding: 10px;
+    width: 250px;
+    font-size: 16px;
+  }
+  
+  button {
+    padding: 10px;
+    width: 250px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  p {
+    font-size: 16px;
+    color: #000000;
+  }
+
+  .error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+  }
+  
