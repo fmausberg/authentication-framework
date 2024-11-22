@@ -8,11 +8,11 @@ import { Navigate } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
-import Impressum from './pages/Impressum';
-import Login from './pages/Login';
-import Register from './pages/Register';
-import MyProfile from './pages/MyProfile';
-import VerifyAccount from './pages/VerifyAccount';
+import Impressum from './pages/ImpressumPage';
+import Login from './pages/LoginPage';
+import Register from './pages/RegisterPage';
+import MyProfile from './pages/MyProfilePage';
+import VerifyAccount from './pages/VerifyAccountPage';
 import CheckPage from './pages/CheckPage';
 
 function App() {
