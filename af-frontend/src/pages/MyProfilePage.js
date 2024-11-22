@@ -136,7 +136,13 @@ const MyProfile = () => {
                     </div>
                 ) : (
                     <>
-                        {user.birthday ? new Date(user.birthday).toLocaleDateString('en-GB').replace(/\//g, '.') : '-'} 
+                        {user.birthday ? (
+                            <>
+                                {new Date(user.birthday).toLocaleDateString('en-GB').replace(/\//g, '.')} 
+                                {' '}
+                                ({Math.floor((new Date() - new Date(user.birthday)) / (365.25 * 24 * 60 * 60 * 1000))} years old)
+                            </>
+                        ) : '-'} 
                         <button onClick={() => handleEditClick('birthday')}>Edit</button>
                     </>
                 )}
