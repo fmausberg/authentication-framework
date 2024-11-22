@@ -14,6 +14,8 @@ import Register from './pages/RegisterPage';
 import MyProfile from './pages/MyProfilePage';
 import VerifyAccount from './pages/VerifyAccountPage';
 import CheckPage from './pages/CheckPage';
+import PasswordResetPage from './pages/PasswordResetPage';
+import ForgotPasswordPage from './pages/ForgotPasswordPage';
 
 function App() {
 	const { logout } = useAuth();
@@ -40,6 +42,8 @@ function App() {
 					<Route path="/register" element={<Register />} />
 					<Route path="/me" element={<ProtectedRoute><MyProfile /></ProtectedRoute>} />
 					<Route path="/verify" element={<VerifyAccount />} />
+					<Route path="/forgot-password" element={<ForgotPasswordPage />} />
+					<Route path="/passwordreset" element={<PasswordResetPage />} />
 				</Routes>
 			</main>
 			<Footer />

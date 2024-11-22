@@ -16,16 +16,12 @@ function Login() {
 
         try {
             const response = await api.post('/auth/directlogin', { mail, password });
-            const { jwttoken } = response.data;
+            const { jwttoken, appUser } = response.data;
             localStorage.setItem('jwttoken', jwttoken);
+            localStorage.setItem('appUser', JSON.stringify(appUser));
 
             // Call login function from context
-            login({ 
-                mail, 
-                firstName: response.data.appUser.firstName, 
-                lastName: response.data.appUser.lastName, 
-                roles: response.data.appUser.roles 
-            });
+            login(appUser); 
             navigate('/me');
         } catch (error) {
             console.error('Login error:', error);
@@ -52,6 +48,9 @@ function Login() {
                     required
                 />
                 <button type="submit">Login</button>
+                <p>
+                    <a href="/forgot-password">Forgot your password?</a>
+                </p>
             </form>
             {error && <p style={{ color: 'red' }}>{error}</p>}
         </div>
