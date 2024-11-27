@@ -1,13 +1,15 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { useLocation, Link } from 'react-router-dom';
+import { useLocation, Link, useNavigate } from 'react-router-dom';
 import api from '../api/axios';
 import { useAuth } from '../contexts/AuthContext';
+import { toast } from 'react-toastify'; // Import toast functions
 
 const VerifyAccount = () => {
     const [status, setStatus] = useState('Verifying...');
     const location = useLocation();
     const token = new URLSearchParams(location.search).get('token');
     const { login } = useAuth(); // Access login from AuthContext
+    const navigate = useNavigate();
 
     const hasVerified = useRef(false); // Ref to track if verification is already done
 
@@ -22,21 +24,14 @@ const VerifyAccount = () => {
                 });
 
                 if (response.status === 200) {
-                    const { jwttoken, appUser } = response.data;
+                    const { firstName } = response.data;
 
-                    // Save JWT token
-                    localStorage.setItem('jwttoken', jwttoken);
-
-                    // Update AuthContext with logged-in user details
-                    login({
-                        mail: appUser.mail,
-                        firstName: appUser.firstName,
-                        lastName: appUser.lastName,
-                        roles: appUser.roles,
+                    toast.info(firstName + ', your email has been successfully verified!', {
+                        position: 'top-center',
+                        autoClose: 5000,
                     });
 
-                    // Set status to success
-                    setStatus('Verification successful! Hello ' + appUser.firstName);
+                    navigate('/login');
                 } else {
                     setStatus('Verification failed. The link may be invalid or expired.');
                 }
@@ -50,7 +45,7 @@ const VerifyAccount = () => {
         } else {
             setStatus('Invalid token.');
         }
-    }, [token, login]);
+    }, [token, login, navigate]);
 
     return (
         <div>
