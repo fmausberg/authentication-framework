@@ -6,7 +6,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
-import io.github.cdimascio.dotenv.Dotenv;
 
 @SpringBootApplication(scanBasePackages = "net.mausberg.authentication_framework_backend")
 @EnableJpaRepositories(basePackages = "net.mausberg.authentication_framework_backend.repository")
@@ -14,10 +13,6 @@ import io.github.cdimascio.dotenv.Dotenv;
 public class AuthenticationFrameworkBackendApplication {
 
 	public static void main(String[] args) {
-
-		//load environment variables for mvn packaging and spring-boot start
-		Dotenv dotenv = Dotenv.configure().ignoreIfMissing().load();
-        dotenv.entries().forEach(entry -> System.setProperty(entry.getKey(), entry.getValue()));
 
 		SpringApplication.run(AuthenticationFrameworkBackendApplication.class, args);
 	}
