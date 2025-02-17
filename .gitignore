@@ -34,6 +34,7 @@ build/
 
 # Maven target directory
 target/
+!target/site/apidocs/
 
 # Gradle build folder
 build/
@@ -68,7 +69,6 @@ out/
 # OS generated files
 .DS_Store
 Thumbs.db
-
 
 HELP.md
 target/
